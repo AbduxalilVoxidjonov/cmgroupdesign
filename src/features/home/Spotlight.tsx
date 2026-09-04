@@ -2,6 +2,8 @@ import { ArrowLink } from '@/shared/ui/ArrowLink';
 import { Section } from '@/shared/ui/Section';
 import { Media } from '@/shared/ui/Media';
 import { Reveal } from '@/shared/ui/Reveal';
+import { media } from '@/content/media';
+import { Picture } from '@/shared/ui/Picture';
 import { useContent } from '@/i18n/context';
 
 export function Spotlight() {
@@ -13,7 +15,14 @@ export function Spotlight() {
     <Section eyebrow={spotlight.eyebrow} title={spotlight.title} intro={spotlight.intro}>
       <Reveal>
         <div className="relative min-h-[280px] overflow-hidden rounded-card md:min-h-[330px]">
-          <Media tone="amber" seed={3} fill animated pattern="mesh" />
+          <Picture
+            src={media.spotlight}
+            variant="orbit"
+            tone="amber"
+            alt=""
+            fill
+            fallback={<Media tone="amber" seed={3} fill animated pattern="mesh" />}
+          />
           <div className="relative flex min-h-[280px] items-center justify-end p-6 md:min-h-[330px] md:p-10">
             <div className="max-w-[380px] rounded-card border border-n-200 bg-n-0/95 p-7 shadow-panel backdrop-blur-sm">
               <span className="mb-3 inline-block rounded bg-n-900 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[1.4px] text-n-0">

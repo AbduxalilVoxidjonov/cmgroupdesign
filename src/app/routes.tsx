@@ -8,6 +8,9 @@ import IndustriesPage from '@/pages/IndustriesPage';
 import ProcessPage from '@/pages/ProcessPage';
 import InsightsPage from '@/pages/InsightsPage';
 import AboutPage from '@/pages/AboutPage';
+import ServicesPage from '@/pages/ServicesPage';
+import ToolsPage from '@/pages/ToolsPage';
+import ResourcesPage from '@/pages/ResourcesPage';
 import ContactPage from '@/pages/ContactPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
@@ -19,7 +22,10 @@ function pageRoutes(): RouteObject[] {
   return [
     { index: true, element: <HomePage /> },
     { path: 'yechimlar', element: <SolutionsPage /> },
+    { path: 'xizmatlar', element: <ServicesPage /> },
     { path: 'sohalar', element: <IndustriesPage /> },
+    { path: 'vositalar', element: <ToolsPage /> },
+    { path: 'resurslar', element: <ResourcesPage /> },
     { path: 'jarayon', element: <ProcessPage /> },
     { path: 'tahlillar', element: <InsightsPage /> },
     { path: 'biz-haqimizda', element: <AboutPage /> },

@@ -1,10 +1,12 @@
 import { ArrowLink } from '@/shared/ui/ArrowLink';
 import { Container } from '@/shared/ui/Container';
-import { Media } from '@/shared/ui/Media';
+import { Picture } from '@/shared/ui/Picture';
+import { solutionVisual } from '@/shared/ui/artworkMap';
 import { PageHero } from '@/shared/ui/PageHero';
 import { Reveal } from '@/shared/ui/Reveal';
 import { CheckIcon } from '@/shared/ui/icons';
 import { ContactCta } from '@/features/home/ContactCta';
+import { media } from '@/content/media';
 import { useContent } from '@/i18n/context';
 import { useDocumentMeta } from '@/i18n/useDocumentMeta';
 import type { SolutionCategory } from '@/content/types';
@@ -17,7 +19,7 @@ export default function SolutionsPage() {
 
   return (
     <>
-      <PageHero {...solutionsPage.hero} tone="deep" />
+      <PageHero {...solutionsPage.hero} tone="deep" image={media.heroSolutions} />
 
       {/* Tez oʻtish chiplari — uzun sahifada moʻljal beradi */}
       <nav aria-label={solutionsPage.navLabel} className="border-b border-n-200 bg-n-0">
@@ -52,7 +54,13 @@ export default function SolutionsPage() {
                   <Reveal key={item.id} delay={(index % 2) * 90} className="h-full">
                     <article id={item.id} className="card card-hover zoom-parent flex h-full scroll-mt-28 flex-col">
                       <div className="relative h-[180px] overflow-hidden">
-                        <Media tone={item.tone} seed={index + 1} fill pattern="dots" className="zoom-media" />
+                        <Picture
+                          {...solutionVisual(item.id)}
+                          tone={item.tone}
+                          alt=""
+                          fill
+                          className="zoom-media"
+                        />
                       </div>
                       <div className="flex flex-1 flex-col p-7">
                         <h3 className="text-h4-m md:text-h4 text-balance mb-2">{item.title}</h3>

@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
 import { ArrowLink } from '@/shared/ui/ArrowLink';
 import { Section } from '@/shared/ui/Section';
-import { Media } from '@/shared/ui/Media';
+import { media } from '@/content/media';
+import { Picture } from '@/shared/ui/Picture';
+import { articleVariant } from '@/shared/ui/artworkMap';
 import { Reveal } from '@/shared/ui/Reveal';
 import { useContent } from '@/i18n/context';
 
@@ -20,7 +22,14 @@ export function InsightGrid() {
       <Reveal>
         <article className="card card-hover zoom-parent mb-8 grid md:grid-cols-2">
           <div className="relative min-h-[240px] overflow-hidden">
-            <Media tone={lead.tone} seed={4} fill className="zoom-media" />
+            <Picture
+              src={media.article(articles.indexOf(lead) + 1)}
+              variant={articleVariant(lead.category)}
+              tone={lead.tone}
+              alt=""
+              fill
+              className="zoom-media"
+            />
             <span className="absolute left-5 top-5 rounded-pill bg-black/45 px-3 py-1 text-fine font-medium text-n-0 backdrop-blur-sm">
               {articleCategories[lead.category]}
             </span>
@@ -41,7 +50,14 @@ export function InsightGrid() {
           <Reveal key={item.slug} delay={index * 90} className="h-full">
             <article className="card card-hover zoom-parent flex h-full flex-col">
               <div className="relative h-[128px] overflow-hidden">
-                <Media tone={item.tone} seed={index + 5} pattern="dots" fill className="zoom-media" />
+                <Picture
+                  src={media.article(articles.indexOf(item) + 1)}
+                  variant={articleVariant(item.category)}
+                  tone={item.tone}
+                  alt=""
+                  fill
+                  className="zoom-media"
+                />
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <p className="mb-1.5 text-meta text-n-600">{articleCategories[item.category]}</p>

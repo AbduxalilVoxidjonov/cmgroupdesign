@@ -7,3 +7,6 @@ dist
 .wrangler
 .dev.vars
 worker-configuration.d.ts
+
+# Lokal ish papkalari (build arxivlari, vaqtinchalik fayllar)
+_inbox

@@ -7,6 +7,9 @@ import { processPage, processSteps } from './process';
 import { articleCategories, articles, insightsPage } from './insights';
 import { aboutPage, partners } from './about';
 import { contactPage, notFoundPage } from './contact';
+import { servicesPage } from './services';
+import { toolsPage } from './tools';
+import { resourcesPage } from './resources';
 
 export const en: ContentBundle = {
   site,
@@ -26,6 +29,9 @@ export const en: ContentBundle = {
   processPage,
   insightsPage,
   aboutPage,
+  servicesPage,
+  toolsPage,
+  resourcesPage,
   contactPage,
   notFoundPage,
 };

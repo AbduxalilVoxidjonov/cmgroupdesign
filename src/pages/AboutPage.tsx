@@ -2,9 +2,11 @@ import { Container } from '@/shared/ui/Container';
 import { Counter } from '@/shared/ui/Counter';
 import { Media } from '@/shared/ui/Media';
 import { PageHero } from '@/shared/ui/PageHero';
+import { Picture } from '@/shared/ui/Picture';
 import { Reveal } from '@/shared/ui/Reveal';
 import { Section } from '@/shared/ui/Section';
 import { ContactCta } from '@/features/home/ContactCta';
+import { media } from '@/content/media';
 import { useContent } from '@/i18n/context';
 import { useDocumentMeta } from '@/i18n/useDocumentMeta';
 
@@ -14,7 +16,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <PageHero {...aboutPage.hero} tone="green" />
+      <PageHero {...aboutPage.hero} tone="green" image={media.heroAbout} />
 
       <section id="yondashuv" className="scroll-mt-28 bg-n-0 py-section">
         <Container>
@@ -34,7 +36,14 @@ export default function AboutPage() {
               </div>
             </Reveal>
             <Reveal delay={120} className="zoom-parent overflow-hidden rounded-card">
-              <Media tone="deep" seed={5} animated pattern="mesh" className="zoom-media min-h-[340px] w-full" />
+              <Picture
+                src={media.aboutApproach}
+                variant="team"
+                tone="deep"
+                alt=""
+                className="zoom-media min-h-[340px] w-full"
+                fallback={<Media tone="deep" seed={5} animated pattern="mesh" className="zoom-media min-h-[340px] w-full" />}
+              />
             </Reveal>
           </div>
 

@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { ArrowLink } from '@/shared/ui/ArrowLink';
 import { Section } from '@/shared/ui/Section';
-import { Media } from '@/shared/ui/Media';
+import { Picture } from '@/shared/ui/Picture';
+import { solutionVisual } from '@/shared/ui/artworkMap';
 import { Reveal } from '@/shared/ui/Reveal';
 import { CheckIcon } from '@/shared/ui/icons';
 import { useContent } from '@/i18n/context';
@@ -20,7 +21,13 @@ export function ResourceCards() {
           <Reveal key={item.id} delay={index * 90} className="h-full">
             <article className="card card-hover zoom-parent flex h-full flex-col">
               <div className="relative h-[180px] overflow-hidden">
-                <Media tone={item.tone} seed={index + 1} pattern="dots" fill className="zoom-media" />
+                <Picture
+                  {...solutionVisual(item.id)}
+                  tone={item.tone}
+                  alt=""
+                  fill
+                  className="zoom-media"
+                />
                 <span className="absolute left-4 top-4 rounded-pill bg-black/45 px-3 py-1 text-fine font-medium text-n-0 backdrop-blur-sm">
                   {solutionCategories[item.category]}
                 </span>

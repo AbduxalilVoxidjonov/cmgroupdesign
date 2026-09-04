@@ -256,3 +256,41 @@ npm run tail           # wrangler tail — jonli loglar
   esa hali yo'q — hozircha `CONTACT_WEBHOOK_URL` orqali tashqi tizimga uzatiladi.
 - Maqolalar uchun alohida detal sahifasi yo'q (ro'yxat darajasida).
 - Avtomatik testlar yozilmagan.
+
+---
+
+## Rasm va artwork tizimi
+
+Saytda tashqi rasm fayllari majburiy emas. Har bir vizual slot `<Picture>` yoki
+`<Artwork>` orqali chiziladi:
+
+- **`src/shared/ui/artwork/`** — original SVG grafikalar toʻplami:
+  - *abstrakt* (`arch`, `orbit`, `wave`, `lattice`) — hero va katta bloklar uchun;
+  - *mahsulot ekranlari* (`dash-hr`, `dash-crm`, `dash-security`, `dash-erp`,
+    `dash-docs`) — 2.33:1 nisbatdagi realistik dashboard mockuplari;
+  - *maqola vizuallari* (`chart`, `network`, `shield`, `team`, `route`, `boxes`).
+- **`src/shared/ui/artworkMap.ts`** — qaysi modul/soha/maqolaga qaysi grafika
+  mos kelishi shu yerda belgilanadi.
+- **`src/shared/ui/Picture.tsx`** — foto sloti. `public/images/` da mos nomli
+  fayl boʻlsa foto koʻrsatiladi, boʻlmasa artwork chiziladi. Fayl nomlari va
+  tavsiya etilgan oʻlchamlar: `public/images/README.md`.
+
+Shu sababli sayt fotosiz ham toʻliq koʻrinadi, foto qoʻshilganda esa kod
+oʻzgartirilmaydi.
+
+## Sahifalar
+
+| Yoʻl | Sahifa |
+|---|---|
+| `/` | Bosh sahifa |
+| `/yechimlar` | Yechimlar (8 modul) |
+| `/xizmatlar` | Xizmatlar (4 guruh × 4 xizmat) |
+| `/sohalar` | Sohalar + kompaniya miqyosi boʻyicha konfiguratsiya |
+| `/jarayon` | Ishlash jarayoni (5 bosqich) |
+| `/vositalar` | Kalkulyator va testlar (8 vosita) |
+| `/tahlillar` | Maqolalar |
+| `/resurslar` | Qoʻllanma, video, FAQ, yangilik, vakansiya |
+| `/biz-haqimizda` | Kompaniya |
+| `/boglanish` | Bogʻlanish |
+
+Har bir sahifa uch tilda: `/…` (uz), `/ru/…`, `/en/…`.

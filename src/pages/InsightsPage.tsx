@@ -1,10 +1,12 @@
 import { useMemo, useState } from 'react';
 import { ArrowLink } from '@/shared/ui/ArrowLink';
 import { Container } from '@/shared/ui/Container';
-import { Media } from '@/shared/ui/Media';
+import { Picture } from '@/shared/ui/Picture';
+import { articleVariant } from '@/shared/ui/artworkMap';
 import { PageHero } from '@/shared/ui/PageHero';
 import { Reveal } from '@/shared/ui/Reveal';
 import { ContactCta } from '@/features/home/ContactCta';
+import { media } from '@/content/media';
 import { useContent, useUi } from '@/i18n/context';
 import { useDocumentMeta } from '@/i18n/useDocumentMeta';
 import type { ArticleCategory } from '@/content/types';
@@ -33,7 +35,7 @@ export default function InsightsPage() {
 
   return (
     <>
-      <PageHero {...insightsPage.hero} tone="violet" />
+      <PageHero {...insightsPage.hero} tone="violet" image={media.heroInsights} />
 
       <section className="bg-n-50 py-section">
         <Container>
@@ -66,7 +68,14 @@ export default function InsightsPage() {
                 <Reveal key={item.slug} delay={(index % 3) * 80} className="h-full">
                   <article className="card card-hover zoom-parent flex h-full flex-col">
                     <div className="relative h-[130px] overflow-hidden">
-                      <Media tone={item.tone} seed={index + 1} fill pattern="dots" className="zoom-media" />
+                      <Picture
+                        src={media.article(articles.indexOf(item) + 1)}
+                        variant={articleVariant(item.category)}
+                        tone={item.tone}
+                        alt=""
+                        fill
+                        className="zoom-media"
+                      />
                       <span className="absolute left-4 top-4 rounded-pill bg-black/45 px-3 py-1 text-fine font-medium text-n-0 backdrop-blur-sm">
                         {articleCategories[item.category]}
                       </span>

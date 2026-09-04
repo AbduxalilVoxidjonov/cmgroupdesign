@@ -3,6 +3,7 @@ import { PageHero } from '@/shared/ui/PageHero';
 import { Reveal } from '@/shared/ui/Reveal';
 import { CheckIcon } from '@/shared/ui/icons';
 import { ContactCta } from '@/features/home/ContactCta';
+import { media } from '@/content/media';
 import { useContent } from '@/i18n/context';
 import { useDocumentMeta } from '@/i18n/useDocumentMeta';
 
@@ -12,7 +13,7 @@ export default function ProcessPage() {
 
   return (
     <>
-      <PageHero {...processPage.hero} tone="slate" />
+      <PageHero {...processPage.hero} tone="slate" image={media.heroProcess} />
 
       <section className="bg-n-0 py-section">
         <Container>

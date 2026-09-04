@@ -14,8 +14,8 @@ function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void
   return (
     <div className="absolute left-0 right-0 top-full z-40 border-b border-n-200 bg-n-0 shadow-panel">
       <div className="page-px">
-        <div className="page-mw grid gap-10 py-8 md:grid-cols-2 lg:grid-cols-3">
-          <div>
+        <div className="page-mw flex flex-wrap items-start justify-end gap-x-14 gap-y-9 py-9">
+          <div className="mr-auto max-w-[240px]">
             <p className="text-eyebrow uppercase text-n-600">{item.label}</p>
             <Link
               to={item.to}
@@ -27,8 +27,8 @@ function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void
             <span className="accent-bar mt-4" aria-hidden="true" />
           </div>
           {item.groups.map((group) => (
-            <div key={group.title}>
-              <p className="mb-3 text-meta font-medium text-n-600">{group.title}</p>
+            <div key={group.title} className="min-w-[186px] max-w-[248px]">
+              <p className="text-eyebrow mb-3 uppercase text-n-600">{group.title}</p>
               <ul className="space-y-1">
                 {group.items.map((child) => (
                   <li key={child.label}>
@@ -181,7 +181,7 @@ export function Header() {
                         type="button"
                         aria-expanded={openIndex === index}
                         onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                        className={`flex items-center gap-1.5 ${navLinkClass(openIndex === index)}`}
+                        className={`flex items-center gap-1.5 whitespace-nowrap ${navLinkClass(openIndex === index)}`}
                       >
                         {item.label}
                         <ChevronDown
@@ -189,7 +189,10 @@ export function Header() {
                         />
                       </button>
                     ) : (
-                      <NavLink to={item.to} className={({ isActive }) => navLinkClass(isActive)}>
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) => `whitespace-nowrap ${navLinkClass(isActive)}`}
+                      >
                         {item.label}
                       </NavLink>
                     )}

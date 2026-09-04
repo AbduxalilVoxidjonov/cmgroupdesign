@@ -110,6 +110,9 @@ export interface IndustriesPage {
   meta: PageMeta;
   hero: HeroCopy;
   itemCta: string;
+  scalesTitle: string;
+  scalesIntro: string;
+  scales: readonly ScaleItem[];
 }
 
 /* --- Jarayon --- */
@@ -314,6 +317,82 @@ export interface NotFoundPage {
   cta: string;
 }
 
+
+/* --- Xizmatlar --- */
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  body: string;
+}
+
+export interface ServiceGroup {
+  id: string;
+  title: string;
+  lead: string;
+  tone: Tone;
+  items: readonly ServiceItem[];
+}
+
+export interface ServicesPage {
+  meta: PageMeta;
+  hero: HeroCopy;
+  groups: readonly ServiceGroup[];
+  itemCta: string;
+  processLinkLabel: string;
+}
+
+/* --- Vositalar --- */
+
+export interface ToolItem {
+  id: string;
+  title: string;
+  body: string;
+  note: string;
+  tone: Tone;
+}
+
+export interface ToolsPage {
+  meta: PageMeta;
+  hero: HeroCopy;
+  intro: string;
+  tools: readonly ToolItem[];
+  itemCta: string;
+  note: string;
+}
+
+/* --- Resurslar --- */
+
+export interface ResourceItem {
+  id: string;
+  kind: string;
+  title: string;
+  body: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface ResourcesPage {
+  meta: PageMeta;
+  hero: HeroCopy;
+  intro: string;
+  items: readonly ResourceItem[];
+  itemCta: string;
+  faqTitle: string;
+  faq: readonly FaqItem[];
+}
+
+/* --- Kompaniya miqyosi (Sohalar sahifasida) --- */
+
+export interface ScaleItem {
+  id: string;
+  title: string;
+  body: string;
+}
+
 /* --- Toʻliq toʻplam --- */
 
 export interface ContentBundle {
@@ -334,6 +413,9 @@ export interface ContentBundle {
   processPage: ProcessPage;
   insightsPage: InsightsPage;
   aboutPage: AboutPage;
+  servicesPage: ServicesPage;
+  toolsPage: ToolsPage;
+  resourcesPage: ResourcesPage;
   contactPage: ContactPage;
   notFoundPage: NotFoundPage;
 }

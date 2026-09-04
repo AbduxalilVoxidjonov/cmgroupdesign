@@ -11,3 +11,8 @@
 # Vite hash bilan nomlangan fayllarni chiqaradi — abadiy keshlash xavfsiz.
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Rasmlar nomi barqaror (almashtirilishi mumkin), shuning uchun abadiy emas —
+# bir kun yangi, keyin bir hafta davomida eski nusxa koʻrsatilib fonda yangilanadi.
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

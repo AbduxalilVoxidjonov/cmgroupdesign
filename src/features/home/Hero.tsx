@@ -6,6 +6,8 @@ import { Marquee } from '@/shared/ui/Marquee';
 import { Media } from '@/shared/ui/Media';
 import { Reveal } from '@/shared/ui/Reveal';
 import { ArrowDown, CheckIcon } from '@/shared/ui/icons';
+import { media } from '@/content/media';
+import { Picture } from '@/shared/ui/Picture';
 import { useContent } from '@/i18n/context';
 
 /** Sarlavhani urgʻu qismiga qarab uch boʻlakka ajratadi. */
@@ -30,7 +32,15 @@ export function Hero() {
 
   return (
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-ink text-n-0">
-      <Media tone="deep" seed={2} fill animated pattern="mesh" />
+      <Picture
+        src={media.heroHome}
+        variant="arch"
+        tone="deep"
+        alt=""
+        fill
+        priority
+        fallback={<Media tone="deep" seed={2} fill animated pattern="mesh" />}
+      />
 
       {/* Chapdan oʻngga soʻnuvchi qoraytirish — matn kontrasti uchun */}
       <div

@@ -1,5 +1,6 @@
 import { Container } from './Container';
 import { Media } from './Media';
+import { Picture } from './Picture';
 import { Reveal } from './Reveal';
 import type { Tone } from './Media';
 
@@ -8,15 +9,26 @@ export function PageHero({
   title,
   lead,
   tone = 'slate',
+  image,
 }: {
   eyebrow: string;
   title: string;
   lead: string;
   tone?: Tone;
+  /** `public/images/` dagi foto sloti; fayl boʻlmasa gradient qoladi. */
+  image?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-ink text-n-0">
-      <Media tone={tone} seed={7} fill animated pattern="mesh" />
+      <Picture
+        src={image}
+        variant="arch"
+        tone={tone}
+        alt=""
+        fill
+        priority
+        fallback={<Media tone={tone} seed={7} fill animated pattern="mesh" />}
+      />
       <div
         aria-hidden="true"
         className="absolute inset-0"

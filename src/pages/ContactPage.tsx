@@ -9,6 +9,7 @@ import { CheckIcon } from '@/shared/ui/icons';
 import { submitContact } from '@/shared/api/contact';
 import { contactLimits, validateContact } from '@/shared/contact/schema';
 import type { ContactErrors, ContactPayload } from '@/shared/contact/schema';
+import { media } from '@/content/media';
 import { telHref } from '@/content/shared';
 import { useContent, useLocale } from '@/i18n/context';
 import { useDocumentMeta } from '@/i18n/useDocumentMeta';
@@ -82,7 +83,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageHero {...contactPage.hero} tone="sky" />
+      <PageHero {...contactPage.hero} tone="sky" image={media.heroContact} />
 
       <section className="bg-n-0 py-section">
         <Container>

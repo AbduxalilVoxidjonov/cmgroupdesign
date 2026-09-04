@@ -61,4 +61,12 @@ export const industriesPage: IndustriesPage = {
     lead: 'The modules are the same, but reports, permissions and process templates are preconfigured for the industry.',
   },
   itemCta: 'Request for your industry',
+  scalesTitle: 'Configuration by company size',
+  scalesIntro: 'The modules stay the same — reporting depth, the role matrix and the rollout schedule change with scale.',
+  scales: [
+    { id: 'kichik', title: 'Small business · 10–50 people', body: 'Start with a single module, usually CRM or HR. Rollout takes 3–6 weeks on ready templates.' },
+    { id: 'orta', title: 'Mid-size business · 50–300 people', body: 'Two or three modules work together, with integrations and a role matrix. Typically 2–4 months.' },
+    { id: 'yirik', title: 'Large enterprise · 300+ people', body: 'The full contour: ERP, HR, document flow and infrastructure, with a staging environment and phased handover.' },
+    { id: 'filial', title: 'Branch network', body: 'Each branch sees its own data while head office gets the consolidated report. Offline mode and sync are supported.' },
+  ],
 };

@@ -57,4 +57,12 @@ export const industriesPage: IndustriesPage = {
     lead: 'Modullar bir xil, lekin hisobot, huquqlar va jarayon shabloni sohaga qarab oldindan sozlanadi.',
   },
   itemCta: 'Soha boʻyicha soʻrov',
+  scalesTitle: 'Kompaniya miqyosiga qarab konfiguratsiya',
+  scalesIntro: 'Modullar bir xil — hisobot chuqurligi, huquqlar tuzilmasi va joriy etish muddati miqyosga qarab oʻzgaradi.',
+  scales: [
+    { id: 'kichik', title: 'Kichik biznes · 10–50 xodim', body: 'Bitta modul bilan boshlanadi: koʻpincha CRM yoki HR. Joriy etish 3–6 hafta, tayyor shablonlar asosida.' },
+    { id: 'orta', title: 'Oʻrta biznes · 50–300 xodim', body: 'Ikki-uch modul birga ishlaydi, integratsiya va rollar matritsasi qoʻshiladi. Odatda 2–4 oy.' },
+    { id: 'yirik', title: 'Yirik korxona · 300+ xodim', body: 'Toʻliq kontur: ERP, HR, hujjat aylanishi va infratuzilma. Alohida sinov muhiti va bosqichli topshirish.' },
+    { id: 'filial', title: 'Filiallar tarmogʻi', body: 'Har bir filial oʻz maʼlumotini koʻradi, markaz umumiy hisobotni. Oflayn rejim va sinxronizatsiya qoʻllab-quvvatlanadi.' },
+  ],
 };

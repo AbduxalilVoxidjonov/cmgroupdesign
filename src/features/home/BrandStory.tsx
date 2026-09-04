@@ -2,6 +2,8 @@ import { ArrowLink } from '@/shared/ui/ArrowLink';
 import { Container } from '@/shared/ui/Container';
 import { Media } from '@/shared/ui/Media';
 import { Reveal } from '@/shared/ui/Reveal';
+import { media } from '@/content/media';
+import { Picture } from '@/shared/ui/Picture';
 import { useContent } from '@/i18n/context';
 
 export function BrandStory() {
@@ -26,7 +28,16 @@ export function BrandStory() {
           {/* Vizual + ustiga chiqib turuvchi urgʻu kartasi */}
           <Reveal delay={120} className="relative">
             <div className="zoom-parent overflow-hidden rounded-card">
-              <Media tone="sky" seed={6} pattern="mesh" animated className="zoom-media min-h-[320px] w-full" />
+              <Picture
+                src={media.storyTeam}
+                variant="team"
+                tone="sky"
+                alt=""
+                className="zoom-media min-h-[320px] w-full"
+                fallback={
+                  <Media tone="sky" seed={6} pattern="mesh" animated className="zoom-media min-h-[320px] w-full" />
+                }
+              />
             </div>
             <div className="mx-4 -mt-12 rounded-card border border-n-200 bg-n-0 p-6 shadow-panel sm:mx-8">
               <p className="text-eyebrow mb-2 uppercase text-n-600">{story.guaranteeLabel}</p>
