@@ -1,0 +1,13 @@
+# Cloudflare Workers Static Assets uchun HTTP sarlavhalari.
+# Bu fayl `dist/` ga koʻchiriladi va Workers uni avtomatik oʻqiydi.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'
+
+# Vite hash bilan nomlangan fayllarni chiqaradi — abadiy keshlash xavfsiz.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

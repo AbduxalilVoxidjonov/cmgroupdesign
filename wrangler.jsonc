@@ -1,0 +1,43 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  // Cloudflare'dagi Worker nomi — deploy manzili shundan hosil boʻladi.
+  "name": "cmgroup-design",
+
+  // Worker'ning kirish nuqtasi (ES module format).
+  "main": "worker/index.ts",
+
+  // Runtime xatti-harakati shu sanadagidek qotiriladi.
+  "compatibility_date": "2025-09-01",
+
+  // Statik fayllar: Vite build natijasi.
+  "assets": {
+    "directory": "./dist",
+    // Worker koddan `env.ASSETS.fetch(request)` orqali murojaat qilinadi.
+    "binding": "ASSETS",
+    // SPA: mavjud boʻlmagan yoʻllar uchun index.html qaytariladi (React Router).
+    "not_found_handling": "single-page-application",
+    // MUHIM: massiv koʻrinishi. Aks holda `/api/*` SPA fallback'ga tushib
+    // JSON oʻrniga index.html qaytaradi.
+    "run_worker_first": ["/api/*"]
+  },
+
+  // Loglar va metrikalar (`wrangler tail`, dashboard).
+  "observability": {
+    "enabled": true
+  }
+
+  // KV: soʻrovlarni saqlash va rate limit uchun. Worker kodi bindingsiz ham
+  // ishlaydi (rate limit va saqlash oʻtkazib yuboriladi), shuning uchun bu
+  // blok namuna sifatida izohda turibdi.
+  //
+  // Yaratish:  npx wrangler kv namespace create CONTACT_KV
+  // Soʻng chiqqan `id` ni quyidagiga qoʻyib, izohni oching:
+  //
+  // "kv_namespaces": [
+  //   {
+  //     "binding": "CONTACT_KV",
+  //     "id": "<bu yerga wrangler bergan id>"
+  //   }
+  // ]
+}

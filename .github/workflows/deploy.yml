@@ -1,0 +1,46 @@
+# main branch'ga push boʻlganda saytni Cloudflare Workers'ga chiqaradi.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  # Qoʻlda ham ishga tushirish mumkin.
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build va deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodni olish
+        uses: actions/checkout@v4
+
+      - name: Node oʻrnatish
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Bogʻliqliklar
+        run: npm ci
+
+      - name: Tiplarni tekshirish
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Cloudflare Workers'ga deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Build yuqorida bajarilgani uchun bu yerda faqat deploy.
+          command: deploy

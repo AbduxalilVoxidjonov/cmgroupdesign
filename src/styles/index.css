@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Layout tokenlari — breakpointga qarab o'zgaradi */
+    --page-px: 48px;
+    --section-py: 48px;
+    --scrim: rgb(18 18 18 / 0.36);
+    /* Vizual qatlam tokenlari */
+    --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out-back: cubic-bezier(0.22, 1, 0.36, 1);
+    --reveal-shift: 22px;
+  }
+  @media (max-width: 1023px) {
+    :root { --page-px: 32px; }
+  }
+  @media (max-width: 767px) {
+    :root { --page-px: 16px; --section-py: 40px; }
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-n-0 text-n-900 font-sans text-base antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid #096183;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection { background: #52D8E6; color: #000; }
+
+  /* Yopishqoq sarlavha ostida qolmasligi uchun anchor-elementlarga bo'shliq */
+  section[id],
+  article[id] { scroll-margin-top: 104px; }
+}
+
+@layer components {
+  /* --- Konteyner ikki qavati (JPM: .jp-page-px + .jp-page-mw) --- */
+  .page-px { padding-inline: var(--page-px); }
+  .page-mw { max-width: theme('maxWidth.page'); margin-inline: auto; }
+
+  /* --- Tugmalar --- */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-pill border
+           text-base font-medium transition-all duration-200 ease-soft;
+    padding: 16px 40px;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn-primary { @apply bg-accent text-n-900 border-n-900 hover:bg-accent-hover hover:shadow-lift; }
+  .btn-secondary { @apply bg-ink text-n-0 border-ink hover:bg-black hover:shadow-lift; }
+  .btn-ghost { @apply bg-transparent text-n-900 border-n-900 hover:bg-n-50; }
+  .btn-on-dark { @apply bg-transparent text-n-0 border-n-0 hover:bg-white/10; }
+
+  /* Tugma ustidan o'tuvchi nozik yorug'lik */
+  .btn-primary::after,
+  .btn-secondary::after {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 -60%;
+    width: 45%;
+    background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.38), transparent);
+    transform: skewX(-18deg);
+    transition: transform 0.7s var(--ease-soft);
+  }
+  .btn-primary:hover::after,
+  .btn-secondary:hover::after { transform: translateX(340%) skewX(-18deg); }
+
+  /* --- Matn bloklari --- */
+  .prose-body p { @apply text-base mb-4 last:mb-0; }
+  .rule { @apply h-px w-full bg-n-200; }
+  .rule-dark { @apply h-px w-full bg-n-800; }
+
+  /* --- Karta interaktivligi --- */
+  .card {
+    @apply relative overflow-hidden rounded-card border border-n-200 bg-n-0 shadow-card
+           transition-all duration-300 ease-soft;
+  }
+  .card-hover:hover {
+    @apply -translate-y-1 border-n-400 shadow-lift;
+  }
+  /* Karta ustidagi urg'u chizig'i — hoverda chapdan o'ngga chiziladi */
+  .card-hover::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    height: 3px;
+    width: 100%;
+    background: theme('colors.accent.DEFAULT');
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-soft);
+    z-index: 2;
+  }
+  .card-hover:hover::before { transform: scaleX(1); }
+
+  /* Rasm/gradient blokini hoverda sekin kattalashtirish */
+  .zoom-parent .zoom-media {
+    transition: transform 0.6s var(--ease-soft);
+    will-change: transform;
+  }
+  .zoom-parent:hover .zoom-media { transform: scale(1.06); }
+
+  /* --- Urg'uli sarlavha chizig'i --- */
+  .accent-bar {
+    @apply mb-5 block h-[3px] w-12 rounded-full bg-accent;
+  }
+}
+
+@layer utilities {
+  /* Skroll bo'yicha paydo bo'lish (Reveal komponenti boshqaradi) */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-shift), 0);
+    transition:
+      opacity 0.75s var(--ease-soft),
+      transform 0.75s var(--ease-out-back);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* Gradient matn — faqat qisqa urg'u so'zlari uchun */
+  .text-gradient {
+    background-image: linear-gradient(96deg, #52D8E6 0%, #9BE7F0 45%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Nozik to'r naqshi (to'q fon ustida) */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .bg-grid-light {
+    background-image:
+      linear-gradient(rgb(33 41 46 / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(33 41 46 / 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Chekkalarga qarab so'nuvchi maska (marquee va to'r uchun) */
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent);
+    mask-image: linear-gradient(180deg, #000 55%, transparent);
+  }
+
+  /* Ustunlar soni o'zgarganda ham bir tekis ko'rinadigan raqamlar */
+  .nums { font-variant-numeric: tabular-nums; }
+}

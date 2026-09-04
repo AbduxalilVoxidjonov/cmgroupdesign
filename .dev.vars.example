@@ -1,0 +1,10 @@
+# Lokal Workers dev (`npm run preview`) uchun maxfiy oʻzgaruvchilar namunasi.
+# Nusxa oling:  cp .dev.vars.example .dev.vars
+# `.dev.vars` git'ga tushmaydi.
+
+# Yangi soʻrov kelganda POST qilinadigan webhook (Slack / Telegram / n8n).
+# Boʻsh qoldirilsa — yetkazish oʻtkazib yuboriladi, soʻrov faqat KV'ga yoziladi.
+CONTACT_WEBHOOK_URL=
+
+# Productionda esa secret sifatida saqlanadi:
+#   npx wrangler secret put CONTACT_WEBHOOK_URL

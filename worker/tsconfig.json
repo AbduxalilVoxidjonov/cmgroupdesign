@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.worker.tsbuildinfo",
+    "target": "ES2022",
+    // Workers runtime'da DOM yoʻq — faqat ES kutubxonasi.
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    // Cloudflare global tiplari (Request, Response, KVNamespace, Fetcher ...).
+    "types": ["@cloudflare/workers-types"],
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "erasableSyntaxOnly": true
+  },
+  // Worker kodi + u import qiladigan umumiy validatsiya moduli.
+  "include": ["../worker", "../src/shared/contact"]
+}
