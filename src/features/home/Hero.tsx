@@ -47,20 +47,6 @@ export function Hero() {
         <div className="relative grid gap-12 py-14 md:py-20 lg:min-h-[604px] lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.72fr)] lg:items-center lg:gap-16 lg:py-24">
           <div>
             <Reveal>
-              <span className="mb-6 inline-flex items-center gap-2.5 rounded-pill border border-white/20 bg-white/5 px-4 py-1.5 text-meta font-medium backdrop-blur-sm">
-                <span className="relative flex h-2 w-2" aria-hidden="true">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70 motion-reduce:animate-none" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                </span>
-                {hero.badge}
-              </span>
-            </Reveal>
-
-            <Reveal delay={80}>
-              <p className="text-eyebrow mb-4 uppercase text-accent">{hero.eyebrow}</p>
-            </Reveal>
-
-            <Reveal delay={140}>
               <h1
                 id="hero-title"
                 className="text-h1-m md:text-h1 text-balance mb-5 max-w-[18ch] lg:text-[56px] lg:leading-[64px]"
@@ -71,11 +57,11 @@ export function Hero() {
               </h1>
             </Reveal>
 
-            <Reveal delay={210}>
+            <Reveal delay={70}>
               <p className="text-lead mb-8 max-w-[52ch] text-n-0/85">{hero.body}</p>
             </Reveal>
 
-            <Reveal delay={280}>
+            <Reveal delay={140}>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <ButtonLink to={hero.cta.to}>{hero.cta.label}</ButtonLink>
                 <ButtonLink to={hero.secondaryCta.to} variant="onDark">
@@ -84,7 +70,7 @@ export function Hero() {
               </div>
             </Reveal>
 
-            <Reveal delay={350}>
+            <Reveal delay={210}>
               <ul className="mt-9 flex flex-wrap gap-x-7 gap-y-3">
                 {hero.points.map((point) => (
                   <li key={point} className="flex items-center gap-2 text-meta text-n-0/80">
@@ -99,7 +85,7 @@ export function Hero() {
           </div>
 
           {/* Koʻrsatkichlar paneli */}
-          <Reveal delay={420} className="lg:justify-self-end">
+          <Reveal delay={280} className="lg:justify-self-end">
             <div className="rounded-card border border-white/15 bg-white/[0.07] p-7 shadow-panel backdrop-blur-md lg:w-[380px]">
               <p className="text-eyebrow mb-6 uppercase text-n-0/70">{hero.statsTitle}</p>
               <dl className="grid grid-cols-2 gap-x-6 gap-y-7">

@@ -271,9 +271,18 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <dt className="text-meta text-n-600">{contactPage.aside.emailLabel}</dt>
-                    <dd>
+                    <dd className="flex flex-wrap items-center gap-x-2">
                       <a href={`mailto:${site.email}`} className="text-link underline-offset-4 hover:underline">
                         {site.email}
+                      </a>
+                      <span aria-hidden="true" className="text-n-400">
+                        ·
+                      </span>
+                      <a
+                        href={`mailto:${site.supportEmail}`}
+                        className="text-link underline-offset-4 hover:underline"
+                      >
+                        {site.supportEmail}
                       </a>
                     </dd>
                   </div>

@@ -9,6 +9,7 @@ export const contacts = {
   legalName: 'Capital Management Group',
   domain: 'cmgroup.uz',
   email: 'ceo@cmgroup.uz',
+  supportEmail: 'support@cmgroup.uz',
   phone: '+998 88 977 77 55',
 } as const;
 

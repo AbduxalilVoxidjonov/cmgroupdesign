@@ -53,9 +53,17 @@ export function Footer() {
                   {site.phone}
                 </a>
               </p>
-              <a href={`mailto:${site.email}`} className="text-base text-accent underline-offset-4 hover:underline">
-                {site.email}
-              </a>
+              <span className="flex flex-wrap items-center gap-x-2 text-base">
+                <a href={`mailto:${site.email}`} className="text-accent underline-offset-4 hover:underline">
+                  {site.email}
+                </a>
+                <span aria-hidden="true" className="text-n-600">
+                  ·
+                </span>
+                <a href={`mailto:${site.supportEmail}`} className="text-accent underline-offset-4 hover:underline">
+                  {site.supportEmail}
+                </a>
+              </span>
             </div>
             <div>
               <p className="text-meta text-n-400">{footer.hoursLabel}</p>

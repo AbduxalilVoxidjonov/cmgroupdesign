@@ -7,8 +7,6 @@ export const home: HomePage = {
       'HR, CRM, ERP, hujjat aylanishi, videokuzatuv va tarmoq — bitta jamoadan, bitta arxitekturada. Loyihalash, joriy etish va texnik qoʻllab-quvvatlash.',
   },
   hero: {
-    badge: 'Jarayon auditi — bepul',
-    eyebrow: 'HR · CRM · ERP · Xavfsizlik',
     title: 'Bizning tizim — sizning poydevoringiz',
     highlight: 'poydevoringiz',
     body: 'HR, CRM, ERP va xavfsizlik — bitta jamoadan, bitta arxitekturada. Loyihalash, joriy etish va texnik qoʻllab-quvvatlashni toʻliq oʻz zimmamizga olamiz.',

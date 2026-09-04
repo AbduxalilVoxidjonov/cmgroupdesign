@@ -264,7 +264,9 @@ export function Header() {
               <Link to="/boglanish" className="btn btn-primary my-4 w-full">
                 {ui.requestQuote}
               </Link>
-              <p className="pb-4 text-meta text-n-600">{site.phone} · {site.email}</p>
+              <p className="pb-4 text-meta text-n-600">
+                {site.phone} · {site.email} · {site.supportEmail}
+              </p>
             </nav>
           </div>
         </div>

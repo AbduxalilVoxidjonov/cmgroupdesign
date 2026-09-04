@@ -10,7 +10,7 @@ export const site: SiteInfo = {
 
 export const utilityNav: readonly UtilityNavItem[] = [
   { label: 'Клиентский портал', href: `https://${contacts.domain}`, external: true },
-  { label: 'Техническая поддержка', href: `mailto:${contacts.email}`, external: false },
+  { label: 'Техническая поддержка', href: `mailto:${contacts.supportEmail}`, external: false },
 ];
 
 export const mainNav: readonly NavItem[] = [

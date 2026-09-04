@@ -36,7 +36,7 @@ export function ContactCta() {
             </div>
 
             <p className="relative mt-10 max-w-[68ch] border-t border-white/15 pt-6 text-fine text-n-400">
-              {cta.note.replace('{email}', site.email)}
+              {cta.note.replace('{email}', `${site.email} · ${site.supportEmail}`)}
             </p>
           </div>
         </Reveal>

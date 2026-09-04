@@ -34,6 +34,8 @@ export interface SiteInfo {
   legalName: string;
   domain: string;
   email: string;
+  /** Texnik yordam uchun alohida manzil — asosiy pochta yonida koʻrsatiladi. */
+  supportEmail: string;
   phone: string;
   tagline: string;
   address: string;
@@ -198,8 +200,6 @@ export interface EditorialEntry {
 export interface HomePage {
   meta: PageMeta;
   hero: {
-    badge: string;
-    eyebrow: string;
     title: string;
     /** Sarlavhaning gradient bilan ajratiladigan qismi — `title` ichida boʻlishi shart. */
     highlight: string;
