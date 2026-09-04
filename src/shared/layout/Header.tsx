@@ -164,7 +164,7 @@ export function Header() {
       <div ref={navRef}>
         <div className="page-px">
           <div
-            className={`page-mw flex items-center gap-8 transition-all duration-300 ease-soft ${
+            className={`page-mw flex items-center gap-6 transition-all duration-300 ease-soft xl:gap-8 ${
               scrolled ? 'py-2.5' : 'py-3.5'
             }`}
           >
@@ -173,7 +173,7 @@ export function Header() {
             </Link>
 
             <nav aria-label={ui.mainNavLabel} className="ml-auto hidden lg:block">
-              <ul className="flex items-center gap-7">
+              <ul className="flex items-center gap-5 xl:gap-7">
                 {mainNav.map((item, index) => (
                   <li key={item.label} className="relative">
                     {item.groups ? (
@@ -205,14 +205,14 @@ export function Header() {
             <button
               type="button"
               aria-label={ui.search}
-              className="hidden shrink-0 rounded p-2 text-n-900 transition-colors hover:bg-n-50 lg:block"
+              className="hidden shrink-0 rounded p-2 text-n-900 transition-colors hover:bg-n-50 xl:block"
             >
               <SearchIcon />
             </button>
 
             <Link
               to="/boglanish"
-              className="hidden shrink-0 rounded-pill border border-n-900 bg-n-900 px-5 py-2.5 text-meta font-medium text-n-0 transition-all duration-200 ease-soft hover:-translate-y-0.5 hover:bg-black hover:shadow-lift lg:inline-flex"
+              className="hidden shrink-0 rounded-pill border border-n-900 bg-n-900 px-5 py-2.5 text-meta font-medium text-n-0 transition-all duration-200 ease-soft hover:-translate-y-0.5 hover:bg-black hover:shadow-lift lgx:inline-flex"
             >
               {ui.requestQuote}
             </Link>
@@ -259,7 +259,7 @@ export function Header() {
                 ))}
               </ul>
               <div className="mt-4">
-                <LocaleSwitcher block onNavigate={() => setMobileOpen(false)} />
+                <LocaleSwitcher variant="inline" onNavigate={() => setMobileOpen(false)} />
               </div>
               <Link to="/boglanish" className="btn btn-primary my-4 w-full">
                 {ui.requestQuote}

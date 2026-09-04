@@ -28,13 +28,13 @@ export const contactMinimums = {
  * `src/i18n/config.ts` dagi `Locale` bilan bir xil qiymatlar — bu modul
  * platformadan mustaqil boʻlishi uchun tipni oʻzida saqlaydi.
  */
-export type ContactLocale = 'uz' | 'ru';
+export type ContactLocale = 'uz' | 'ru' | 'en';
 
 export const defaultContactLocale: ContactLocale = 'uz';
 
 /** Kiruvchi qiymatdan tilni xavfsiz aniqlaydi. */
 export function readLocale(value: unknown): ContactLocale {
-  return value === 'ru' ? 'ru' : 'uz';
+  return value === 'ru' || value === 'en' ? value : 'uz';
 }
 
 /** Shakl orqali yuboriladigan maʼlumot. */
@@ -90,6 +90,17 @@ const messages: Record<ContactLocale, {
     reasonTooLong: (max) => `Тема обращения слишком длинная (не более ${max} символов).`,
     messageRequired: `Кратко опишите задачу (минимум ${contactMinimums.message} символов).`,
     messageTooLong: (max) => `Описание слишком длинное (не более ${max} символов).`,
+  },
+  en: {
+    malformed: 'The data was sent in an invalid format.',
+    nameRequired: `Enter your name (at least ${contactMinimums.name} characters).`,
+    nameTooLong: (max) => `The name is too long (up to ${max} characters).`,
+    companyTooLong: (max) => `The company name is too long (up to ${max} characters).`,
+    contactRequired: 'Enter your phone number or email address.',
+    contactTooLong: (max) => `The contact details are too long (up to ${max} characters).`,
+    reasonTooLong: (max) => `The topic is too long (up to ${max} characters).`,
+    messageRequired: `Briefly describe the task (at least ${contactMinimums.message} characters).`,
+    messageTooLong: (max) => `The description is too long (up to ${max} characters).`,
   },
 };
 

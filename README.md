@@ -30,12 +30,13 @@ npm run dev        # http://localhost:5173
 - **Vite 7** — build va dev-server
 - **Tailwind CSS 3.4** — design tokenlar `tailwind.config.ts` da
 - **React Router 7** — `createBrowserRouter`, ikki tilli marshrutlar
-- **UZ / RU** — til manzilda: `/` oʻzbekcha, `/ru` ruscha
+- **UZ / RU / EN** — til manzilda: `/` oʻzbekcha, `/ru` ruscha, `/en` inglizcha
 - **Cloudflare Workers** — hosting va `/api/*` qatlami (`worker/index.ts`,
   `wrangler.jsonc`); bog'lanish shakli validatsiyasi `src/shared/contact/`
   da client va Worker uchun umumiy.
-- Sahifa kontenti `src/content/uz` va `src/content/ru` da — ikkalasi ham
-  `src/content/types.ts` dagi bitta `ContentBundle` tipiga bo'ysunadi. Katta ma'lumot
+- Sahifa kontenti `src/content/uz`, `src/content/ru` va `src/content/en` da —
+  uchalasi ham `src/content/types.ts` dagi bitta `ContentBundle` tipiga
+  bo'ysunadi. Katta ma'lumot
   qatlami qo'shilganda TanStack Query shu joyga o'rnatiladi.
 
 ## Struktura
@@ -48,7 +49,8 @@ src/
 │  ├─ types.ts     ikkala til uchun umumiy tuzilish
 │  ├─ shared.ts    tildan qat'i nazar bir xil (telefon, e-pochta, hamkorlar)
 │  ├─ uz/          o'zbekcha matnlar
-│  └─ ru/          ruscha matnlar
+│  ├─ ru/          ruscha matnlar
+│  └─ en/          inglizcha matnlar
 ├─ features/home/  bosh sahifa bloklari
 ├─ pages/          sahifa konteynerlari
 ├─ shared/
@@ -87,7 +89,7 @@ Tipografika shkalasi `tailwind.config.ts` dagi `fontSize` da: `h1 44/56 w300`,
 `h2 40/48 w300`, `h4 26/34 w400`, `base 16/24`, `meta 14/22`, `fine 12/20`.
 Mobil variantlar `-m` qo'shimchasi bilan (`text-h1-m` va h.k.).
 
-## Ikki til (UZ / RU)
+## Uch til (UZ / RU / EN)
 
 Til **manzilda** saqlanadi, shuning uchun har bir sahifani havola sifatida
 ulashish va indeksatsiya qilish mumkin:
@@ -96,6 +98,7 @@ ulashish va indeksatsiya qilish mumkin:
 |---|---|
 | `/`, `/yechimlar`, `/boglanish` | o'zbekcha (asosiy, prefikssiz) |
 | `/ru`, `/ru/yechimlar`, `/ru/boglanish` | ruscha |
+| `/en`, `/en/yechimlar`, `/en/boglanish` | inglizcha |
 
 Yo'l nomlari (`/yechimlar`, `/boglanish`) ikkala tilda ham bir xil — faqat
 prefiks qo'shiladi. Kodda havolalar har doim kanonik ko'rinishda yoziladi
@@ -111,15 +114,27 @@ Qanday ishlaydi:
 | `src/i18n/context.ts` | `useLocale`, `useContent`, `useUi` hooklari |
 | `src/i18n/ui.ts` | interfeys matnlari (tugma, aria-label, rus tilidagi son shakllari) |
 | `src/i18n/useDocumentMeta.ts` | `<title>` va meta-tavsifni tilga qarab yangilaydi |
+| `src/i18n/useAlternateLinks.ts` | `canonical` va `hreflang` teglari (qidiruv tizimlari uchun) |
 | `src/shared/layout/LocaleSwitcher.tsx` | sarlavhadagi UZ/RU almashtirgichi |
 
-**Yangi til qo'shish:** `src/i18n/config.ts` ga kod qo'shiladi, `src/content/`
-da shu nomli papka yaratiladi (`ContentBundle` tipi to'liqligini `tsc`
-nazorat qiladi), `src/i18n/ui.ts` ga lug'at qo'shiladi. Marshrutlar
-`src/app/routes.tsx` da avtomatik hosil bo'ladi.
+Sarlavhadagi almashtirgich — globus belgili ixcham menyu (til soni ortsa ham
+joy egallamaydi); mobil menyuda uchala til yonma-yon turadi.
 
-Server tomonda ham til hisobga olinadi: `POST /api/contact?lang=ru` xato
-matnlarini rus tilida qaytaradi (`src/shared/contact/schema.ts`).
+**Yangi til qo'shish** (masalan, qozoqcha) — to'rt qadam:
+
+1. `src/i18n/config.ts` → `locales` ga kod va `localeMeta` ga nom qo'shiladi.
+2. `src/content/<kod>/` papkasi yaratiladi (uz papkasidan nusxa olib tarjima
+   qilinadi) — biror maydon tushib qolsa `npm run typecheck` xato beradi.
+3. `src/i18n/ui.ts` ga interfeys lug'ati qo'shiladi.
+4. Xohishga ko'ra `src/shared/contact/schema.ts`, `src/shared/api/contact.ts`
+   va `worker/index.ts` dagi xato matnlariga shu til qo'shiladi.
+
+Marshrutlar (`/<kod>/...`) va `hreflang` teglari `src/app/routes.tsx` hamda
+`useAlternateLinks` orqali avtomatik hosil bo'ladi.
+
+Server tomonda ham til hisobga olinadi: `POST /api/contact?lang=ru`
+(yoki `?lang=en`) xato matnlarini shu tilda qaytaradi
+(`src/shared/contact/schema.ts`).
 
 ## Harakat va interaktivlik
 
@@ -240,6 +255,4 @@ npm run tail           # wrangler tail — jonli loglar
   validatsiya, honeypot, rate limit va KV'ga yozish ishlaydi. CRM integratsiyasi
   esa hali yo'q — hozircha `CONTACT_WEBHOOK_URL` orqali tashqi tizimga uzatiladi.
 - Maqolalar uchun alohida detal sahifasi yo'q (ro'yxat darajasida).
-- Ingliz tili qo'shilmagan (UZ/RU tayyor — EN uchun `src/content/en/` papkasi
-  va `src/i18n/ui.ts` ga lug'at yetarli).
 - Avtomatik testlar yozilmagan.

@@ -60,3 +60,18 @@ export function ArrowDown({ className = '' }: IconProps) {
     </svg>
   );
 }
+
+export function GlobeIcon({ className = '' }: IconProps) {
+  return (
+    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" className={className} fill="none">
+      <circle cx="8" cy="8" r="6.25" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M1.75 8 H14.25" stroke="currentColor" strokeWidth="1.3" />
+      <path
+        d="M8 1.75 C10 4 10 12 8 14.25 C6 12 6 4 8 1.75 Z"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

@@ -3,7 +3,7 @@ import type { Config } from 'tailwindcss';
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
-    screens: { sm: '480px', md: '768px', lg: '1024px', xl: '1500px' },
+    screens: { sm: '480px', md: '768px', lg: '1024px', lgx: '1200px', xl: '1500px' },
     extend: {
       colors: {
         accent: { DEFAULT: '#52D8E6', hover: '#3FC9D9', soft: '#D9F5F9', deep: '#0E7C8C' },

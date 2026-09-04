@@ -38,6 +38,13 @@ const clientMessages: Record<ContactLocale, {
     rateLimited: 'Заявки отправляются слишком часто. Попробуйте через несколько минут.',
     server: 'Временный сбой на сервере. Попробуйте через некоторое время.',
   },
+  en: {
+    generic: 'The request could not be sent. Try again later or contact us by phone.',
+    offline: 'Could not reach the server. Check your internet connection and try again.',
+    invalid: 'Some fields contain errors. Please check the form.',
+    rateLimited: 'Requests are being sent too often. Try again in a few minutes.',
+    server: 'Temporary server issue. Please try again shortly.',
+  },
 };
 
 /** Javob JSON boʻlmasa ham yiqilmaslik uchun xavfsiz parse. */

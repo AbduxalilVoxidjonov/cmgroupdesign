@@ -48,6 +48,15 @@ const workerMessages: Record<ContactLocale, WorkerMessages> = {
     notFound: 'Такой API-адрес не найден.',
     server: 'Непредвиденная ошибка сервера.',
   },
+  en: {
+    method: 'Wrong request method for this endpoint.',
+    contentType: 'The request must be `application/json`.',
+    tooLarge: 'The request body is too large.',
+    badJson: 'Could not parse JSON.',
+    rateLimited: 'Requests are being sent too often. Try again in a few minutes.',
+    notFound: 'No such API endpoint.',
+    server: 'Unexpected server error.',
+  },
 };
 
 /** Soʻrov manzilidagi `?lang=` qiymati boʻyicha xabarlar toʻplami. */

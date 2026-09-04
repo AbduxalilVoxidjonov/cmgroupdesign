@@ -65,7 +65,23 @@ const ru: UiStrings = {
   materialsCount: (count) => `${count} ${ruPlural(count, ['материал', 'материала', 'материалов'])}`,
 };
 
-const dictionaries: Record<Locale, UiStrings> = { uz, ru };
+const en: UiStrings = {
+  skipToContent: 'Skip to main content',
+  mainNavLabel: 'Main',
+  mobileNavLabel: 'Mobile menu',
+  menu: 'Menu',
+  search: 'Search',
+  sectionPage: 'Section page',
+  homeAria: '{name} — home page',
+  corporateClients: 'For corporate clients',
+  requestQuote: 'Submit a request',
+  language: 'Language',
+  allFilter: 'All',
+  solutionsCount: (count) => `${count} ${count === 1 ? 'solution' : 'solutions'}`,
+  materialsCount: (count) => `${count} ${count === 1 ? 'article' : 'articles'}`,
+};
+
+const dictionaries: Record<Locale, UiStrings> = { uz, ru, en };
 
 export function getUi(locale: Locale): UiStrings {
   return dictionaries[locale];
