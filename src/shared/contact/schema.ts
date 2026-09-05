@@ -30,11 +30,11 @@ export const contactMinimums = {
  */
 export type ContactLocale = 'uz' | 'ru' | 'en';
 
-export const defaultContactLocale: ContactLocale = 'uz';
+export const defaultContactLocale: ContactLocale = 'en';
 
 /** Kiruvchi qiymatdan tilni xavfsiz aniqlaydi. */
 export function readLocale(value: unknown): ContactLocale {
-  return value === 'ru' || value === 'en' ? value : 'uz';
+  return value === 'ru' || value === 'uz' ? value : 'en';
 }
 
 /** Shakl orqali yuboriladigan maʼlumot. */

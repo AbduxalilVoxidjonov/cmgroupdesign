@@ -29,8 +29,8 @@ npm run dev        # http://localhost:5173
 - **React 19** + **TypeScript 5.8** (`strict`, `noUncheckedIndexedAccess`)
 - **Vite 7** — build va dev-server
 - **Tailwind CSS 3.4** — design tokenlar `tailwind.config.ts` da
-- **React Router 7** — `createBrowserRouter`, ikki tilli marshrutlar
-- **UZ / RU / EN** — til manzilda: `/` oʻzbekcha, `/ru` ruscha, `/en` inglizcha
+- **React Router 7** — `createBrowserRouter`, uch tilli marshrutlar
+- **EN / UZ / RU** — til manzilda: `/` inglizcha (asosiy), `/uz` oʻzbekcha, `/ru` ruscha
 - **Cloudflare Workers** — hosting va `/api/*` qatlami (`worker/index.ts`,
   `wrangler.jsonc`); bog'lanish shakli validatsiyasi `src/shared/contact/`
   da client va Worker uchun umumiy.
@@ -96,11 +96,11 @@ ulashish va indeksatsiya qilish mumkin:
 
 | Manzil | Til |
 |---|---|
-| `/`, `/yechimlar`, `/boglanish` | o'zbekcha (asosiy, prefikssiz) |
+| `/`, `/yechimlar`, `/boglanish` | inglizcha (asosiy, prefikssiz) |
+| `/uz`, `/uz/yechimlar`, `/uz/boglanish` | o'zbekcha |
 | `/ru`, `/ru/yechimlar`, `/ru/boglanish` | ruscha |
-| `/en`, `/en/yechimlar`, `/en/boglanish` | inglizcha |
 
-Yo'l nomlari (`/yechimlar`, `/boglanish`) ikkala tilda ham bir xil — faqat
+Yo'l nomlari (`/yechimlar`, `/boglanish`) uchala tilda ham bir xil — faqat
 prefiks qo'shiladi. Kodda havolalar har doim kanonik ko'rinishda yoziladi
 (`<Link to="/yechimlar">`), prefiksni `src/i18n/Link.tsx` avtomatik qo'yadi.
 
@@ -293,4 +293,4 @@ oʻzgartirilmaydi.
 | `/biz-haqimizda` | Kompaniya |
 | `/boglanish` | Bogʻlanish |
 
-Har bir sahifa uch tilda: `/…` (uz), `/ru/…`, `/en/…`.
+Har bir sahifa uch tilda: `/…` (en), `/uz/…`, `/ru/…`.

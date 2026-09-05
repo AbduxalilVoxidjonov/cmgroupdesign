@@ -8,7 +8,7 @@ import { useAlternateLinks } from './useAlternateLinks';
 
 /**
  * Joriy tilni va shu tildagi kontentni butun daraxtga tarqatadi.
- * Til manzildan aniqlanadi (`/` — oʻzbekcha, `/ru` — ruscha), shuning uchun
+ * Til manzildan aniqlanadi (`/` — inglizcha, `/uz`, `/ru`), shuning uchun
  * har bir sahifani havola sifatida ulashish mumkin.
  */
 export function LocaleProvider({ locale, children }: { locale: Locale; children: ReactNode }) {

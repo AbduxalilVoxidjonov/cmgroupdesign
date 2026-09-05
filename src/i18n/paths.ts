@@ -2,7 +2,7 @@ import { defaultLocale, isLocale, type Locale } from './config';
 
 /**
  * Kanonik yoʻlga til prefiksini qoʻshadi.
- * Asosiy til prefikssiz qoladi: `/yechimlar`, ruscha esa `/ru/yechimlar`.
+ * Asosiy til (inglizcha) prefikssiz qoladi: `/yechimlar`, oʻzbekchasi esa `/uz/yechimlar`.
  */
 export function withLocale(to: string, locale: Locale): string {
   if (locale === defaultLocale) return to;

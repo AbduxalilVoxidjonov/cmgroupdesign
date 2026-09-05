@@ -72,7 +72,7 @@ function pickErrors(body: unknown): ContactErrors | null {
 /** Soʻrovni serverga yuboradi. Xato matnlari foydalanuvchi tilida qaytadi. */
 export async function submitContact(
   payload: ContactPayload,
-  locale: ContactLocale = 'uz',
+  locale: ContactLocale = 'en',
 ): Promise<SubmitContactResult> {
   const text = clientMessages[locale];
   let response: Response;

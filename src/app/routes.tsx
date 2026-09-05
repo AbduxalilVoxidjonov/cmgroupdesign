@@ -16,7 +16,8 @@ import NotFoundPage from '@/pages/NotFoundPage';
 
 /**
  * Sahifalar daraxti har bir til uchun bir xil — yoʻllar oʻzbekcha
- * (kanonik) qoladi, ruscha versiya `/ru` prefiksi ostida joylashadi.
+ * (kanonik) qoladi. Asosiy til inglizcha va prefikssiz (`/`), qolganlari
+ * `/uz` va `/ru` prefikslari ostida joylashadi.
  */
 function pageRoutes(): RouteObject[] {
   return [
